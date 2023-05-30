@@ -13,10 +13,13 @@ let number = document.getElementById(`simon_number`)
 number.innerText= simonNumber
 //Attendere 30 secondi 
 setTimeout(attesa , 3000);
-setTimeout(domanda , 3100)
+setTimeout(domanda , 3100);
+
+
 //array con i numeri del utente
 let rispostaUtente =[]
 console.log(rispostaUtente)
+
 //Far scomparire i 5 numeri
 function attesa(){
     number.innerText= ``;  
@@ -24,14 +27,28 @@ function attesa(){
 //Chiedere al utente di inserire i 5 numeri ( uno alla volta )
 //pushare i numeri inseriti in un array
 function domanda(){
-   let primoNumero = prompt(`Inserisci primo numero`)
+   let primoNumero = parseInt(prompt(`Inserisci primo numero`))
    rispostaUtente.push(primoNumero)
-   let secondoNumero = prompt(`Inserisci secondo numero`)
+   let secondoNumero = parseInt(prompt(`Inserisci secondo numero`))
    rispostaUtente.push(secondoNumero)
-   let terzoNumero = prompt(`Inserisci terzo numero`)
+   let terzoNumero = parseInt(prompt(`Inserisci terzo numero`))
    rispostaUtente.push(terzoNumero)
-   let quartoNumero = prompt(`Inserisci quarto numero`)
+   let quartoNumero = parseInt(prompt(`Inserisci quarto numero`))
    rispostaUtente.push(quartoNumero)
-   let quintoNumero = prompt(`Inserisci quinto numero`)
+   let quintoNumero = parseInt(prompt(`Inserisci quinto numero`))
    rispostaUtente.push(quintoNumero)
-  }  
+   
+   setTimeout(risposta, 1000)
+}
+
+function risposta() {
+    if (simonNumber === rispostaUtente) {
+      alert(`Hai vinto!`);
+    } else {
+      alert(`Hai perso!`);
+    }
+  }
+
+
+  
+
