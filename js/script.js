@@ -12,8 +12,8 @@ let createRandomNumber = Math.floor(Math.random()*(50 - 1 +1)+1);
 let number = document.getElementById(`simon_number`)
 number.innerText= simonNumber
 //Attendere 30 secondi 
-setTimeout(attesa , 3000);
-setTimeout(domanda , 3100);
+setTimeout(attesa , 30000);
+setTimeout(domanda , 30100);
 
 
 //array con i numeri del utente
