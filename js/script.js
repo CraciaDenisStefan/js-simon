@@ -24,31 +24,38 @@ console.log(rispostaUtente)
 function attesa(){
     number.innerText= ``;  
 }
+
+
 //Chiedere al utente di inserire i 5 numeri ( uno alla volta )
 //pushare i numeri inseriti in un array
 function domanda(){
-   let primoNumero = parseInt(prompt(`Inserisci primo numero`))
-   rispostaUtente.push(primoNumero)
-   let secondoNumero = parseInt(prompt(`Inserisci secondo numero`))
-   rispostaUtente.push(secondoNumero)
-   let terzoNumero = parseInt(prompt(`Inserisci terzo numero`))
-   rispostaUtente.push(terzoNumero)
-   let quartoNumero = parseInt(prompt(`Inserisci quarto numero`))
-   rispostaUtente.push(quartoNumero)
-   let quintoNumero = parseInt(prompt(`Inserisci quinto numero`))
-   rispostaUtente.push(quintoNumero)
-   
+    for(let i=1; i<6;i++){
+   let numero = parseInt(prompt(`Inserisci un numero${i}`));
+   while (isNaN(numero) || numero < 1 || numero > 50) {
+    numero = parseInt(prompt(`Inserisci un numero valido ${i}`));
+    }
+   rispostaUtente.push(numero)
+}
    setTimeout(risposta, 1000)
 }
-
 function risposta() {
-    if (simonNumber === rispostaUtente) {
-      alert(`Hai vinto!`);
-    } else {
-      alert(`Hai perso!`);
-    }
-  }
+    let corrette = 0;
+    let numeriIndovinati = [];
 
+    for (let i = 0; i < simonNumber.length; i++) {
+      if (rispostaUtente.includes(simonNumber[i])) {
+        corrette++;
+        numeriIndovinati.push(simonNumber[i]);
+      }
+    }
+    if (corrette === 5) {
+        alert("Hai indovinato tutti i numeri! ");
+      } else if (corrette > 0) {
+        alert("Hai indovinato " + corrette + " numero/i : " + numeriIndovinati);
+      } else {
+        alert("Hai perso. Non hai indovinato nessun numero.");
+      }
+}
 
   
 
