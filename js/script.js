@@ -13,7 +13,7 @@ let number = document.getElementById(`simon_number`)
 number.innerText= simonNumber
 //Attendere 30 secondi 
 setTimeout(attesa , 30000);
-setTimeout(domanda , 30100);
+setTimeout(domanda , 30200);
 
 
 //array con i numeri del utente
@@ -31,9 +31,10 @@ function attesa(){
 function domanda(){
     for(let i=1; i<6;i++){
    let numero = parseInt(prompt(`Inserisci un numero${i}`));
-   while (isNaN(numero) || numero < 1 || numero > 50) {
+   while (isNaN(numero) || numero < 1 || numero > 50 || rispostaUtente.includes(numero)) {
     numero = parseInt(prompt(`Inserisci un numero valido ${i}`));
     }
+
    rispostaUtente.push(numero)
 }
    setTimeout(risposta, 1000)
